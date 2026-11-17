@@ -31,10 +31,10 @@ int main(){
     scanf("%d", &key);
 
     int result = LinearSearch(arr, n, key);
-    if(result == -1){
-        printf("Element %d not found in the array!", key);
+    if(result != -1){
+        printf("Element %d found at index %d", key, result);
     }
     else{
-        printf("Element %d found at index %d", key, i);
+        printf("Element %d not found in the array!", key);
     }
 }
