@@ -35,6 +35,6 @@ int main(){
         printf("Element %d not found in the array!", key);
     }
     else{
-        printf("Element %d found at index %d", key, i);
+        printf("Element %d found at index %d", key, result);
     }
 }
