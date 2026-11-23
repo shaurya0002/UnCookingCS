@@ -23,10 +23,10 @@ void push(int value){
     printf("%d is pushed to Stack\n", value);
 }
 
-void pop(int value){
+int pop(){
     if(isEmpty()){
         printf("Stack Underflow, Stack is empty\n");
-        return;
+        return -1;
     }
     return stack[top--];
 }
@@ -49,4 +49,18 @@ void display(){
         printf("%d ", stack[i]);
     }
     printf("\n");
+}
+
+int main(){
+    push(10);
+    push(20);
+    push(30);
+    
+    display();
+
+    printf("Top element is %d\n", peek());
+    printf("Popped element is %d\n", pop());
+
+    display();
+    return 0;
 }
