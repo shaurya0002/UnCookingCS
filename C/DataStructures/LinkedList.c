@@ -73,3 +73,45 @@ struct Node* deleteBeginning(struct Node *head){
     free(temp);
     return head;
 }
+
+//Deletion at the End
+struct Node* deleteEnd(struct Node *head){
+    if(head==NULL){
+        printf("List Empty!\n");
+        return NULL;
+    }
+    if(head->next==NULL){
+        free(head);
+        return NULL;
+    }
+    struct Node *temp = head;
+    while(temp->next->next !=NULL){
+        temp=temp->next;
+    }
+    free(temp->next);
+    temp->next=NULL;
+    return head;
+}
+
+//Delete from a specific position
+struct Node* DeletePosition(struct Node *head, int pos){
+    if(pos < 1 ||head==NULL){
+        printf("Invalid Position or empty list\n");
+        return head;
+    }
+    if(pos == 1){
+        return DeleteBeginning(head);
+    }
+    struct Node *temp = head;
+    for(int i = 0; i < pos-1 && temp !=NULL; i++){
+        temp=temp->next;
+    }
+    if(temp==NULL || temp->next==NULL){
+        printf("Invalid Position!\n");
+        return head;
+    }
+    struct Node *delNode = temp->next;
+    temp->next = delNode->next;
+    free(delNode);
+    return head;
+}
