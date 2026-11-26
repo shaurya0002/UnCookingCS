@@ -61,3 +61,15 @@ struct Node* InsertPosition(struct Node *head, int value, int pos){
     temp->next = newNode;
     return head;
 }
+
+//Deletion in the Beginning
+struct Node* deleteBeginning(struct Node *head){
+    if(head==NULL){
+        printf("Empty List!\n");
+        return NULL;
+    }
+    struct Node *temp = head;
+    head=head->next;
+    free(temp);
+    return head;
+}
